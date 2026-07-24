@@ -11,16 +11,6 @@
     .container { max-width: 800px; margin: 0 auto; }
     h1 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
     
-    /* 비밀번호 화면 */
-    #password-screen { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-    .password-box { background: var(--card); padding: 32px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 320px; max-width: 90vw; }
-    .password-box h2 { margin-bottom: 16px; font-size: 1.2rem; }
-    .password-box input { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; margin-bottom: 12px; }
-    .password-box button { width: 100%; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; }
-    .password-box .error { color: #dc2626; font-size: 0.9rem; margin-top: 8px; display: none; }
-    
-    #main-content { display: none; }
-    
     .session { background: var(--card); border-radius: 12px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: hidden; }
     .session summary { padding: 16px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; list-style: none; }
     .session summary::-webkit-details-marker { display: none; }
@@ -34,16 +24,7 @@
   </style>
 </head>
 <body>
-  <div id="password-screen">
-    <div class="password-box">
-      <h2>🔒 합창단 연습 녹음</h2>
-      <input type="password" id="pw" placeholder="비밀번호 입력" autocomplete="current-password">
-      <button onclick="checkPassword()">접근</button>
-      <div class="error" id="error">비밀번호가 틀렸습니다.</div>
-    </div>
-  </div>
-  
-  <div id="main-content">
+  <div id="main-content" style="display:block">
     
     <div class="container">
       <h1>🎵 합창단 연습 녹음</h1>
@@ -88,20 +69,5 @@
     </div>
   </div>
   
-  <script>
-    function checkPassword() {
-      var input = document.getElementById('pw').value;
-      if (input === 'dauqua2026') {
-        document.getElementById('password-screen').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-      } else {
-        document.getElementById('error').style.display = 'block';
-        document.getElementById('pw').value = '';
-      }
-    }
-    document.getElementById('pw').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') checkPassword();
-    });
-  </script>
 </body>
 </html>
